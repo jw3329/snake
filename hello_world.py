@@ -14,3 +14,6 @@ print('I like strawberry')
 =======
 print('i like mango')
 >>>>>>> 7b655b2410fc03a3f86044649ac8bfb472eb8d20
+
+
+print('I like graph')
