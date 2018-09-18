@@ -13,4 +13,6 @@ print('I like apple')
 print('I like strawberry')
 =======
 print('i like mango')
->>>>>>> 7b655b2410fc03a3f86044649ac8bfb472eb8d20
+>>>>>>> 7b655b2410fc03a3f86044649ac8bfb472eb8d2
+
+print('last check')
