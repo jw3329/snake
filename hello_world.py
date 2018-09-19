@@ -13,7 +13,13 @@ print('I like apple')
 print('I like strawberry')
 =======
 print('i like mango')
+<<<<<<< HEAD
 >>>>>>> 7b655b2410fc03a3f86044649ac8bfb472eb8d20
 
 
 print('I like graph')
+=======
+>>>>>>> 7b655b2410fc03a3f86044649ac8bfb472eb8d2
+
+print('last check')
+>>>>>>> hk_branch
