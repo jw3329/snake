@@ -1,3 +1,4 @@
+from threading import Thread
 from pynput.keyboard import Key, Listener
 
 class Snake:
@@ -5,13 +6,12 @@ class Snake:
         self.body_length = 1
         self.score = 0
         self.direction = 0      # right = 0, up = 1, left = 2, down = 3
-        self.speed = 1
-        self.head = (0,0)
+        self.loc_list = []
 
-        with Listener(on_press=self.on_press) as listener:
-            listener.join()
+        directionThread = Thread(target=self.setDirerctionListener,args=())
+        directionThread.start()
 
-    def on_press(self,key):
+    def on_press(self, key):
         key_dic = {
             Key.right: 0,
             Key.up: 1,
@@ -20,8 +20,8 @@ class Snake:
         }
         if key in key_dic:
             self.direction = key_dic[key]
-            #print(self.direction)
+            # print(self.direction)
 
-
-
-Snake()
+    def setDirerctionListener(self):
+        with Listener(on_press=self.on_press) as listener:
+            listener.join()
