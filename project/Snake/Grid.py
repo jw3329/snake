@@ -1,7 +1,6 @@
 import random
 
-from project.Snake.Snake import Snake
-
+from Snake import Snake
 
 class Grid:
     def __init__(self):
@@ -21,9 +20,10 @@ class Grid:
         return (x,y)
 
     def generateRandomLocation(self):
-        (x,y) = self.generateRandomScore()
-        divider = self.SIZE - 10
-        return (x % divider + 5, y % divider + 5)
+        fourth = self.SIZE//4
+        x = random.randint(fourth, fourth*3)
+        y = random.randint(fourth, fourth*3)
+        return (x,y)
 
     def generateRandomDirection(self):
         direction = random.randint(0,3)
@@ -31,9 +31,8 @@ class Grid:
 
     def setSnake(self):
         # get body length and mark it into grid
-        print('hi')
-        x = [0,1,0,-1]
-        y = [-1,0,1,0]
+        x = [-1,0,1,0]
+        y = [0,1,0,-1]
         head = self.snake.loc_list[0]
         self.grid[head[0]][head[1]] = 1     #head
         cur_x,cur_y = head[0],head[1]
