@@ -1,7 +1,7 @@
 import random
 import time
 
-from Snake import Snake
+from project.Snake.Snake import Snake
 
 NOTHING = 0
 BODY = 1
