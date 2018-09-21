@@ -5,7 +5,7 @@ from project.Snake.Snake import Snake
 
 class Grid:
     def __init__(self):
-        self.SIZE = 20
+        self.SIZE = 15
         self.grid = [[0 for _ in range(self.SIZE)] for _ in range(self.SIZE)]
         self.snake = Snake()
         # choose random grid to put the head and the direction to go
