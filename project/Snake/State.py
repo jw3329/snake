@@ -94,10 +94,9 @@ class State:
     def gameLoop(self):
         fruit_loc = self.generateFruitLocation()
         self.grid[fruit_loc[1]][fruit_loc[0]] = FOOD
+        head_loc = self.snake.loc_list[0]
         while True:
-            head_loc = self.snake.loc_list[0]
             # print(head_loc)
-            if self.grid[head_loc[1]][head_loc[0]] in [BODY, WALL]: break
             if fruit_loc == head_loc:
                 fruit_loc = self.generateFruitLocation()
                 self.grid[fruit_loc[1]][fruit_loc[0]] = FOOD
@@ -105,9 +104,11 @@ class State:
                 self.addTail()
             else:
                 self.nextState()
+            head_loc = self.snake.loc_list[0]
+            if self.grid[head_loc[1]][head_loc[0]] in [BODY, WALL]: break
             self.printState()
             print('')
-            time.sleep(1)
+            time.sleep(0.4)
         print('game over')
 
 
