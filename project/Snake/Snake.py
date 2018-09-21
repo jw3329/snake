@@ -19,7 +19,8 @@ class Snake:
             Key.down: 3
         }
         if key in key_dic:
-            self.direction = key_dic[key]
+            if (self.direction + key_dic[key]) % 4 != 0:
+                self.direction = key_dic[key]
             # print(self.direction)
 
     def setDirerctionListener(self):
