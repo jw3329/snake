@@ -1,7 +1,7 @@
 import random
 import time
 
-from project.Snake.Snake import Snake
+from Snake import Snake
 
 NOTHING = 0
 BODY = 1
@@ -81,6 +81,8 @@ class State:
             else:
                 last_x, last_y = self.snake.loc_list.pop()
                 self.grid[last_y][last_x] = NOTHING
+        else:
+            pass #game over
 
     def addTail(self):
         last = self.snake.loc_list[-1]
