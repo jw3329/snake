@@ -108,7 +108,7 @@ class State:
             if self.grid[head_loc[1]][head_loc[0]] in [BODY, WALL]: break
             self.printState()
             print('')
-            time.sleep(0.4)
+            time.sleep(1)
         print('game over')
 
 

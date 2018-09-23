@@ -12,14 +12,18 @@ class Snake:
         directionThread.start()
 
     def on_press(self, key):
+        x = [1,0,-1,0]
+        y = [0,-1,0,1]
         key_dic = {
             Key.right: 0,
             Key.up: 1,
             Key.left: 2,
             Key.down: 3
         }
+        head = self.loc_list[0]
+        body = self.loc_list[1]
         if key in key_dic:
-            if (self.direction + key_dic[key]) % 2 != 0:
+            if (head[0] + x[key_dic[key]], head[1] + y[key_dic[key]]) != body:
                 self.direction = key_dic[key]
             # print(self.direction)
 
