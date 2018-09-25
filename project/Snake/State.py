@@ -26,7 +26,7 @@ class State:
         self.snake.direction = self.generateRandomDirection()
         # mark snake on the grid
         self.setSnake()
-        self.gameLoop()
+        # self.gameLoop()
 
     def generateRandomLocation(self):
         fourth = self.SIZE//4
@@ -110,6 +110,3 @@ class State:
             print('')
             time.sleep(1)
         print('game over')
-
-
-State()
