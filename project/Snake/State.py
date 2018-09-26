@@ -1,5 +1,4 @@
 import random
-import time
 
 from project.Snake.Snake import Snake
 
@@ -27,6 +26,7 @@ class State:
         # mark snake on the grid
         self.setSnake()
         # self.gameLoop()
+        self.prev = False
 
     def generateRandomLocation(self):
         fourth = self.SIZE//4
@@ -78,35 +78,10 @@ class State:
             if new_head_loc == FOOD:
                 self.snake.body_length += 1
                 self.snake.score += 1
+                print(self.snake.body_length)
             else:
                 last_x, last_y = self.snake.loc_list.pop()
                 self.grid[last_y][last_x] = NOTHING
+
         else:
             pass #game over
-
-    def addTail(self):
-        last = self.snake.loc_list[-1]
-        self.nextState()
-        self.snake.loc_list.append(last)
-        self.grid[last[1]][last[0]] = BODY
-        self.snake.body_length += 1
-
-    def gameLoop(self):
-        fruit_loc = self.generateFruitLocation()
-        self.grid[fruit_loc[1]][fruit_loc[0]] = FOOD
-        head_loc = self.snake.loc_list[0]
-        while True:
-            # print(head_loc)
-            if fruit_loc == head_loc:
-                fruit_loc = self.generateFruitLocation()
-                self.grid[fruit_loc[1]][fruit_loc[0]] = FOOD
-                self.snake.score += 1
-                self.addTail()
-            else:
-                self.nextState()
-            head_loc = self.snake.loc_list[0]
-            if self.grid[head_loc[1]][head_loc[0]] in [BODY, WALL]: break
-            self.printState()
-            print('')
-            time.sleep(1)
-        print('game over')
